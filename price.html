@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Meals</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
+
+
+</head>
+
+<body style="background: ghostwhite">
+
+
+<div class="container-fluid" style="max-width: 960px">
+
+    <div class="jumbotron">
+        <h1>Meals</h1>
+        <p class="lead">Tasty food. Great savings.</p>
+    </div>
+
+    <div class="ing-heading">
+        <h2>Below is a list of all the ingredients used in the recipe:</h2>
+    </div>
+
+    <table class="table table-striped" id="priceTable">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Matched Product</th>
+            <th>Unit Price</th>
+            <th>Buy From</th>
+            <th>Include?</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--Insert using JavaScript-->
+        </tbody>
+    </table>
+
+    <hr>
+    <div id="total" class="rightAlign">
+        <h4>Total:</h4>
+        <h3 id="totalPrice"></h3>
+    </div>
+    <div id="store" class="rightAlign">
+        <h4>When you buy from:</h4>
+        <img src="asset/store1_logo.png" class="storeLogo" href="https://www.saveonfoods.com/">
+    </div>
+
+    <footer class="footer" style="clear: both">
+        <p>&copy;2017 Meals, Inc. All rights reserved.</p>
+    </footer>
+
+</div> <!-- /container -->
+
+
+<!-- Javascript -->
+<script>
+    // Find a <table> element with id="myTable":
+    var table = document.getElementById("priceTable").lastElementChild;
+
+    var ingredients = ["Lamb chops", "Olive oil", "Raw Garlic", "Black pepper"];
+    var quantity = [2, 1, 1, 2];
+    var matchedProducts=["Lamb chops, 100g bag","Olive oil, 350ml","Garlic, 3pcs", "Black pepper, 250g bottle"];
+    var priceBook = [[3.99,100], [5.49,100], [2.79,100], [2.99,100]];  //Use: priceBook[ITEM][STORE]
+    var unitPrice = [3.99, 5.49, 2.79, 2.99];
+
+    // Create an empty <tr> element and add it to the end of the table:
+    var row;
+
+    //Insert information to table
+    for (var i = 0; i < ingredients.length; i++) {
+        row = table.insertRow(-1);
+        // Insert new cells (<td> elements) in row:
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+        var cell6 = row.insertCell(5);
+        var cell7 = row.insertCell(6);
+
+        // Add some text to the new cells:
+        cell1.innerText = i + 1;
+        cell2.innerText = ingredients[i];
+        cell3.innerText = quantity[i];
+        cell4.innerText = matchedProducts[i];
+        cell5.innerText = unitPrice[i];
+        cell5.id='unitPrice_'+i;
+        cell5.className='unitPrice';
+
+        //Add store select dropdown
+        var tempID='"storeSelect_'+i+'"';
+        var tempInnerHTML =
+            '<select class="storeSelectDropdown" id='+tempID+'>'+
+            '<option value="0" >Save on Foods</option>'+
+            '<option value="1" >Safeway</option>'+
+            '</select>'
+        ;
+        cell6.innerHTML=tempInnerHTML;
+
+        cell7.innerHTML = '<input type="checkbox" name="item_' + i + '" id="item_' + i + '" class="css-checkbox" checked/><label class="css-label" for="item_' + i + '"></label>';
+
+    }
+
+
+    $(".css-checkbox").change(
+        function () {
+            calculateTotalPrice();
+            highlightPrice();
+        }
+    );
+
+    $(document).ready(function () {
+        calculateTotalPrice();
+    });
+
+
+    function calculateTotalPrice() {
+        var totalP = 0;
+        for (var i = 0; i < ingredients.length; i++) {
+            if ($("#item_" + i).prop("checked"))
+                totalP += unitPrice[i] * quantity[i];
+
+        }
+
+        totalP = Math.round(totalP * 100) / 100;
+        $("#totalPrice").text(totalP);
+    }
+
+    //Using jQuery to highlight price
+    function highlightPrice() {
+        $("#totalPrice").effect("highlight", "", 500);
+    }
+
+
+    //when total price changes
+    $("#totalPrice").change(highlightPrice());
+
+
+    $(".storeSelectDropdown").change(function () {
+
+        //i is the item number
+        for(var i=0;i<ingredients.length;i++){
+            unitPrice[i]=priceBook[i][$("#storeSelect_"+i).val()];
+            $("#unitPrice_"+i).text(unitPrice[i]);
+        }
+        calculateTotalPrice();
+        highlightPrice();
+    })
+
+
+</script>
+
+
+</body>
+</html>

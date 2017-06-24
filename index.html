@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>iRecipe - Home</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet">
+
+
+    <link href="css/style.css" rel="stylesheet">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        $(function () {
+            // run the currently selected effect
+            function runEffect() {
+
+                // Need no options passed by default
+                var options = {};
+
+                // Run the effect
+                $(".meals-sidebar").show("highlight", options, 1000);
+            }
+
+            $(".meals-sidebar").hide();
+            runEffect();
+        });
+    </script>
+
+
+</head>
+
+<body style="background: ghostwhite">
+
+<div class="container-fluid" style="max-width: 800px">
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">iRecipe</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Asian</a></li>
+                <li><a href="#">Italian</a></li>
+                <li><a href="#">India</a></li>
+                <li><a href="#">Other</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron">
+
+        <img class="center_fit" src="pics/Lamb.png" alt="Loading">
+        <h2>Chef John's Grilled Lamb with Mint Orange Sauce</h2>
+        <p class="lead">Recipe by: Chef John "Using a blend of Mediterranean herbs and spices and a touch of cinnamon,
+            these tender grilled lamb chops are served with orange and fresh mint sauce."</p>
+        <p><a id="button" class="btn btn-lg btn-success" href="#" role="button">Save</a></p>
+    </div>
+
+    <div class="row marketing">
+        <div>
+
+            <h2 class="title">Ingredients</h2>
+            <ul class="bullet_list">
+
+                <li><p>2 pounds lamb loin chops</p></li>
+                <li><p>2 tablespoons olive oil</p></li>
+                <li><p>3 cloves garlic, minced</p></li>
+                <li><p>1 tablespoon cumin</p></li>
+                <li><p>1 teaspoon mixed herbs - Italian, Greek, or French blend</p></li>
+                <li><p>1/2 teaspoon black pepper</p></li>
+            </ul>
+
+            <h2 class="title">Sauce:</h2>
+            <ul class="bullet_list">
+                <li><p>1/4 cup orange marmalade</p></li>
+                <li><p>1 pinch hot chili flakes</p></li>
+                <li><p>1/2 tablespoon rice vinegar</p></li>
+                <li><p>1 tablespoon chopped fresh mint</p></li>
+            </ul>
+
+            <h2 class="title">Directions</h2>
+            <ol class="ordered_list" type="1">
+                <li><p>Place lamb chops in a large bowl. Season with olive oil, garlic, cumin, mixed herbs, pepper,
+                    coriander, cinnamon, cayenne, and salt. Toss until well coated with oil and seasonings. Cover and
+                    refrigerate. Allow to marinate at least 4 hours.</p></li>
+                <li><p>Preheat an outdoor grill for high heat and lightly oil the grate. Place lamb chops on grill.
+                    Sprinkle the chops with a bit of salt. Grill until seared on the first side, 4 to 7 minutes
+                    depending on the size of the chops. Rotate chops a half turn on the grill about a minute before
+                    turning them. Turn and grill the other side to desired doneness, another 4 to 7 minutes. For medium
+                    rare, an instant-read thermometer inserted into the center should bead 125 to 130 degrees F (54
+                    degrees C). Transfer to a serving dish and tent loosely with foil.</p></li>
+                <li><p>Place marmalade in bowl. Add chili flakes, mint, and rice vinegar. Stir together thoroughly.</p>
+                </li>
+                <li><p>Brush the sauce over the chops and serve.</p></li>
+            </ol>
+        </div>
+
+    </div> <!-- /container -->
+</div>
+
+    <footer class="footer">
+        <p>&copy; 2016 Company, Inc.</p>
+    </footer>
+
+    <div class="meals-sidebar ui-widget-content ui-corner-all">
+        <ul class="bullet_list" id="sidebar_content">
+
+            <li><p style="font-weight: 500;">lamb chops: <span style="color:red">3.99/lb</span>
+                <span class="strike_through"> 5.99/lb</span></p></li>
+
+            <li><p style="font-weight: 500;">Olive oil: <span style="color:red">5.49 ea</span>
+                <span class="strike_through"> 7.99 ea</span></p></li>
+
+            <li><p style="font-weight: 500;">Raw garlic: <span style="color:red">0.99 ea</span>
+                <span class="strike_through"> 1.49 ea</span></p></li>
+
+            <li><p style="font-weight: 500;">Black pepper: <span style="color:red">2.99 ea</span>
+                <span class="strike_through"> 4.99 ea</span></p></li>
+        </ul>
+        <a class="button" href="price.html"> >> Find more products on sale!</a>
+    </div>
+
+</div>
+</body>
+</html>

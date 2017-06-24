@@ -1,0 +1,97 @@
+*{margin:0;padding:0;}
+
+/*sidebar*/
+.meals-sidebar {
+    position:fixed;
+    top:140px;
+    z-index:9999;
+    width:260px;
+    background:#ddd;
+    right:1%;
+}
+#sidebar_content{
+    margin-left: 25px;
+    font-size: medium;
+}
+
+.strike_through{
+    color: grey;
+    font-size:       15px;
+    text-decoration: line-through;
+}
+
+/*Meals page*/
+input[type=checkbox].css-checkbox {
+    position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+    padding-left:30px;
+    height:25px;
+    display:inline-block;
+    line-height:25px;
+    background-repeat:no-repeat;
+    background-position: 0 0;
+    font-size:25px;
+    vertical-align:middle;
+    cursor:pointer;
+
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+    background-position: 0 -25px;
+}
+label.css-label {
+    background-image:url("../asset/csscheckbox.png");
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.rightAlign{ float: right; display: block;clear: both}
+.storeLogo{max-height: 30px}
+
+
+/*index page*/
+.jumbotron{
+    /* make the pic size fit with the page */
+    height: 100%;
+    margin: 0;
+    padding:0;
+}
+.center_fit{
+    /* making the pic size fit with the page */
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width:100%;
+}
+
+.marketing{
+    margin:5% 6%; /*top & bottom 5%, left & right 6%*/
+}
+
+.bullet_list {
+    list-style-type:disc;
+    font-size:18px;
+}
+.ordered_list {
+    list-style-type:'1';
+    font-size:18px;
+}
+
+.button{
+    font:18px arial, sans-serif;
+    font-weight: bold;
+}
+
+.footer{
+    margin-bottom:0.5%;
+    text-align: center;
+
+}
+
